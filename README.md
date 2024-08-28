@@ -6,7 +6,7 @@ These models are developed mainly for academic research.
 * Support Japanese models
 * Support Noise-robust models
 * Support batch and streaming models
-* Support KanaKanjiMajiri and Katakana (Syllable-like) character models
+* Support Kanji-Katakana-Hiragana and Katakana (Syllable-like) character models
 
 ## Requirements
 Python and ESPnet are required.
@@ -109,7 +109,7 @@ See [pyadintool](https://github.com/ouktlab/pyadintool) ASR example for real-tim
 
 ## Available Pre-trained Models
 Some models are available at huggingface under cc-by-nc-4.0 license. 
-### KanaKanjiMajiri-character Models
+### Kanji-Katakana-Hiragana Models
 These models are used to estimate Japanese characters from speech signal.
 ```
 あらゆる現実をすべて自分の方へねじ曲げたのだ
@@ -125,7 +125,7 @@ These models are used to estimate Japanese characters from speech signal.
 - [ouktlab/espnet_streaming_robustcsj_csjbccwj-v01_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_robustcsj_csjbccwj-v01_asr_train_asr_transformer_lm_rnn)
   - RNN-LM trained by CSJ and BCCWJ corpus
 
-### Katakana-character Models
+### Katakana Models
 These models are used to estimate Japanese Katakana characters (syllable/pronunciation symbols) from speech signal. The "Katakana" transcription used in training is based on notion of pronunciation. 
 - ヲ and ヅ are converted into オ and ズ due to their pronuciation. 
 - Some vowels are converted into a long vowel: ホウ -> ホー. 
