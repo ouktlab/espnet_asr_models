@@ -109,6 +109,18 @@ See [pyadintool](https://github.com/ouktlab/pyadintool) ASR example for real-tim
 
 ## Available Pre-trained Models
 Some models are available at huggingface under cc-by-nc-4.0 license. 
+
+### Assumptions
+- Number of speakers: one
+- Audio file format: monaural 16kHz sampling
+  - Raw uncompressed audio is better
+  - Speech enhancement, sound source separation may degrade the performance of some models
+  - Up/Down-sampling is required before recognition  
+- Pre-processing: voice activity deteciton (VAD) is necessary
+  - Non-speech section may affect the performance
+  - Other pre-processings, such as speech enhancement, sound source separation, may degrade the performance of some models
+
+
 ### Kanji-Katakana-Hiragana Models
 These models are used to estimate Japanese characters from speech signal.
 ```
@@ -127,7 +139,7 @@ These models are used to estimate Japanese characters from speech signal.
 
 ### Katakana Models
 These models are used to estimate Japanese Katakana characters (syllable/pronunciation symbols) from speech signal. The "Katakana" transcription used in training is based on notion of pronunciation. 
-- ヲ and ヅ are converted into オ and ズ due to their pronuciation. 
+- ヲ, ヘ and ヅ are converted into オ, エ and ズ due to their pronuciation. 
 - Some vowels are converted into a long vowel: ホウ -> ホー. 
 ```
 アラユルゲンジツオスベテジブンノホーエネジマゲタノダ
@@ -195,7 +207,7 @@ normalize_conf:
 ```
 
 #### Your ESPnet Language Model
-Just change the path of "lm_train_config" and "lm_file". It is better to change language model if the application domain is specific. 
+Just change the path of "lm_train_config" and "lm_file". It is better to change language model if the application domain is specific. The common "token list" between ASR and LM is assumed.  
 ```
 # Load model
 basepath = 'espnet_katakana_csj_asr_train_asr_transformer_lm_rnn/exp/'
