@@ -114,7 +114,6 @@ Some models are available at huggingface under cc-by-nc-4.0 license.
 - Number of speakers: one
 - Audio file format: monaural 16kHz sampling
   - Raw uncompressed audio is better
-  - Speech enhancement, sound source separation may degrade the performance of some models
   - Up/Down-sampling is required before recognition  
 - Pre-processing: voice activity deteciton (VAD) is necessary
   - Non-speech section may affect the performance
