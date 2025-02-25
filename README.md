@@ -5,7 +5,7 @@ These models are developed mainly for academic research.
 ## Features
 * Support Japanese models
 * Support Noise-robust models
-* Support batch and streaming models
+* Support batch and streaming models (ContextualBlockTransformer for streaming)
 * Support Kanji-Katakana-Hiragana and Katakana (Syllable-like) character models
 
 ## Requirements
@@ -32,7 +32,7 @@ sh setup.sh
 ```
 
 ### Case: Normal ASR (batch)
-Use "batch.py" for batch processing.
+Use "batch.py" for batch processing (start to recognize after a whole input signal is given).
 ```
 . venv/bin/activate             # only once
 python3 batch.py sample.wav
@@ -75,7 +75,8 @@ Use "streaming.py" for "low-latency" streaming processing. The total processing 
 python3 streaming.py sample.wav
 ```
 
-Bacause "from_pretrained" method has not been implemented in "Speech2TextStreaming" class yet, its wrapper class is defined and used. The following is an example code of streaming recognition.
+Bacause "from_pretrained" method has not been implemented in "Speech2TextStreaming" class yet, its wrapper class is defined and used in our example code. 
+The following is an example code of streaming recognition.
 ```
 args = usage()
 
@@ -127,8 +128,14 @@ These models are used to estimate Japanese characters from speech signal.
 ```
 
 #### Batch
+- [ouktlab/espnet_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_csj_asr_train_asr_transformer_lm_rnn)
+  - Trained using CSJ recipe in ESPnet
 - [ouktlab/espnet_robustcsj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_robustcsj_asr_train_asr_transformer_lm_rnn)
   - Multi-conditioned training: clean speech, reverberant speech, and mixture of speech and non-speech signal
+- [ouktlab/espnet_asr-ja-mc_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b](https://huggingface.co/ouktlab/espnet_asr-ja-mc_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b)
+  - Shallow fusion using transformer LM
+  - Recommended setting of CTC and language model weights: (0.21, 0.30) . Default setting is not the best.
+
 #### Streaming
 - [ouktlab/espnet_streaming_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_csj_asr_train_asr_transformer_lm_rnn)
 - [ouktlab/espnet_streaming_robustcsj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_robustcsj_asr_train_asr_transformer_lm_rnn)
@@ -146,6 +153,9 @@ These models are used to estimate Japanese Katakana characters (syllable/pronunc
 #### Batch
 - [ouktlab/espnet_katakana_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_katakana_csj_asr_train_asr_transformer_lm_rnn)
 - [ouktlab/espnet_katakana_robustcorpus10_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_katakana_robustcorpus10_asr_train_asr_transformer_lm_rnn)
+- [ouktlab/espnet_asr-ja-kc_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b](https://huggingface.co/ouktlab/ouktlab/espnet_asr-ja-kc_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b)
+  - Shallow fusion using transformer LM
+  - Recommended setting of CTC and language model: (0.21, 0.30) or (0.19, 0.35) . Default setting is not the best.
 
 #### Streaming
 - [ouktlab/espnet_streaming_katakana_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_katakana_csj_asr_train_asr_transformer_lm_rnn)
@@ -231,3 +241,49 @@ model = Speech2Text.from_pretrained(
     penalty=0.0
 )
 ```
+
+### Modification for streaming ASR
+It is better to change the default parameters of ContextualBlockTransformer 
+because these of our models are slightly different from defaults of streaming ASR.  
+We may be able to get intermediate results more frequently by changing these parameters. 
+
+Our settings
+```
+  block_size: int = 20,
+  hop_size: int = 8,
+  look_ahead: int = 8,
+```
+Default settings
+```
+  block_size: int = 40,
+  hop_size: int = 16,
+  look_ahead: int = 16,
+```
+
+If you want to adjust these parameters, please modify the source code of ESPnet as follows.
+1. Remove comment-outs: asr_inference_streaming.py, line 117
+```
+  look_ahead = asr_train_args.encoder_conf['look_ahead']
+  hop_size   = asr_train_args.encoder_conf['hop_size']
+  block_size = asr_train_args.encoder_conf['block_size']
+```
+2. Add default parameters: asr_inference_streaming.py, line 132-134
+```
+  beam_search = BatchBeamSearchOnline(
+    beam_size=beam_size,
+    weights=weights,
+    scorers=scorers,
+    sos=asr_model.sos,
+    eos=asr_model.eos,
+    vocab_size=len(token_list),
+    token_list=token_list,
+    pre_beam_score_key=None if ctc_weight == 1.0 else "full",
+    block_size=block_size, # added
+    hop_size=hop_size,     # added
+    look_ahead=look_ahead, # added
+    disable_repetition_detection=disable_repetition_detection,
+    decoder_text_length_limit=decoder_text_length_limit,
+    encoded_feat_length_limit=encoded_feat_length_limit,
+  )
+```
+
