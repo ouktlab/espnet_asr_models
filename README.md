@@ -7,6 +7,7 @@ These models are developed mainly for academic research.
 * Support Noise-robust models
 * Support batch and streaming models (ContextualBlockTransformer for streaming)
 * Support Kanji-Katakana-Hiragana and Katakana (Syllable-like) character models
+* Recognition of fillers and hesitations (deletion error rate is basically small)
 
 ## Requirements
 Python and ESPnet are required.
