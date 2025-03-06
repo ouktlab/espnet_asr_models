@@ -128,21 +128,35 @@ These models are used to estimate Japanese characters from speech signal.
 あらゆる現実をすべて自分の方へねじ曲げたのだ
 ```
 
+Numbers are represented by Chinese numerals.  
+Audio and transcription with ID D*  in CSJ corpus were excluded from training data (following the CSJ recipe of ESPnet).
+
 #### Batch
 - [ouktlab/espnet_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_csj_asr_train_asr_transformer_lm_rnn)
-  - Trained using CSJ recipe in ESPnet
+  - model: transformer ASR + RNN LM.
+  - audio: CSJ clean speech
+  - text: CSJ transcription
 - [ouktlab/espnet_robustcsj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_robustcsj_asr_train_asr_transformer_lm_rnn)
-  - Multi-conditioned training: clean speech, reverberant speech, and mixture of speech and non-speech signal
+  - model: transformer ASR + RNN LM.
+  - audio: CSJ clean speech + augmented speech -- reverberant speech, and mixture of speech and non-speech signal
+  - text: CSJ transcription
 - [ouktlab/espnet_asr-ja-mc_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b](https://huggingface.co/ouktlab/espnet_asr-ja-mc_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b)
-  - Shallow fusion using transformer LM
-  - Recommended setting of CTC and language model weights: (0.21, 0.30) . Default setting is not the best.
+  - model: transformer ASR + transformer LM.
+  - recommended setting of CTC and language model weights: (0.21, 0.30) . Default setting is not the best.
 
 #### Streaming
 - [ouktlab/espnet_streaming_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_csj_asr_train_asr_transformer_lm_rnn)
+  - model: contextual-block-transformer ASR + RNN LM 
+  - audio: CSJ clean speech
+  - text: CSJ transcription
 - [ouktlab/espnet_streaming_robustcsj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_robustcsj_asr_train_asr_transformer_lm_rnn)
-  - Multi-conditioned training: clean speech, reverberant speech, and mixture of speech and non-speech signal
+  - model: contextual-block-transformer ASR + RNN LM
+  - audio: CSJ clean speech + augmented speech -- reverberant speech, and mixture of speech and non-speech signal
+  - text: CSJ transcription
 - [ouktlab/espnet_streaming_robustcsj_csjbccwj-v01_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_robustcsj_csjbccwj-v01_asr_train_asr_transformer_lm_rnn)
-  - RNN-LM trained by CSJ and BCCWJ corpus
+  - model: contextual-block-transformer ASR + RNN LM
+  - audio: CSJ clean speech + augmented speech -- reverberant speech, and mixture of speech and non-speech signal
+  - text: CSJ transcription + BCCWJ
 
 ### Katakana Models
 These models are used to estimate Japanese Katakana characters (syllable/pronunciation symbols) from speech signal. The "Katakana" transcription used in training is based on notion of pronunciation. 
@@ -151,17 +165,32 @@ These models are used to estimate Japanese Katakana characters (syllable/pronunc
 ```
 アラユルゲンジツオスベテジブンノホーエネジマゲタノダ
 ```
+
+Audio and transcription with ID D* in CSJ corpus were excluded from training data (following the CSJ recipe of ESPnet).
+
 #### Batch
 - [ouktlab/espnet_katakana_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_katakana_csj_asr_train_asr_transformer_lm_rnn)
+  - model: transformer ASR and RNN LM.
+  - audio: CSJ clean speech
+  - text: CSJ transcription
 - [ouktlab/espnet_katakana_robustcorpus10_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_katakana_robustcorpus10_asr_train_asr_transformer_lm_rnn)
+  - model: transformer ASR and RNN LM.
 - [ouktlab/espnet_asr-ja-kc_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b](https://huggingface.co/ouktlab/espnet_asr-ja-kc_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b)
-  - Shallow fusion using transformer LM
-  - Recommended setting of CTC and language model: (0.21, 0.30) or (0.19, 0.35) . Default setting is not the best.
+  - model: transformer ASR and transformer LM.
+  - recommended setting of CTC and language model: (0.21, 0.30) or (0.19, 0.35) . Default setting is not the best.
 
 #### Streaming
 - [ouktlab/espnet_streaming_katakana_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_katakana_csj_asr_train_asr_transformer_lm_rnn)
+  - model: contextual-block-transformer ASR + RNN LM 
+  - audio: CSJ clean speech
+  - text: CSJ transcription
 - [ouktlab/espnet_streaming_katakana_robustcsj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_katakana_robustcsj_asr_train_asr_transformer_lm_rnn)
-- [ouktlab/espnet_streaming_katakana_robustcorpus10_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_katakana_robustcorpus10_asr_train_asr_transformer_lm_rnn)
+  - model: contextual-block-transformer ASR + RNN LM 
+  - audio: CSJ clean speech + augmented speech -- reverberant speech, and mixture of speech and non-speech signal
+  - text: CSJ transcription
+- [ouktlab/espnet_asr-ja-kc-stream_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b](https://huggingface.co/ouktlab/espnet_asr-ja-kc-stream_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b)
+  - model: contextual-block-transformer ASR + transformer LM 
+  - recommended setting of CTC and language model: (0.21, 0.30) or (0.19, 0.35) . Default setting is not the best.
 
 
 ## Others
