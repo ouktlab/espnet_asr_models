@@ -94,7 +94,8 @@ model = Speech2TextStreamingInterface.from_pretrained(
     nbest=args.nbest,
     ctc_weight=args.ctc_weight,
     lm_weight=args.lm_weight,
-    penalty=0.0
+    penalty=0.0,
+    disable_repetition_detection=True,
 )
 
 s, fs = torchaudio.load(args.filename)
@@ -107,6 +108,9 @@ for pos in range(0, len(s), segment_len):
     # sometimes includes intermediate result for longer input
 results = model(torch.empty(0), is_final=True)
 ```
+Note that the option "disable_repetition_detection" is required to obtain intermediate recognition results.
+
+
 See [pyadintool](https://github.com/ouktlab/pyadintool) ASR example for real-time streaming ASR. 
 
 ## Available Pre-trained Models

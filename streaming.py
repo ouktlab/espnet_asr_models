@@ -1,3 +1,4 @@
+import sys
 import torch
 import torchaudio
 import time
@@ -72,8 +73,9 @@ def main():
         beam_size=args.beam_size,
         nbest=args.nbest,
         ctc_weight=args.ctc_weight,
-        lm_weight=args.lm_weight,
-        penalty=0.0
+        lm_weight=args.lm_weight,        
+        penalty=0.0,
+        disable_repetition_detection=True,
     )
 
     #
@@ -86,6 +88,11 @@ def main():
     for pos in range(0, len(s), segment_len):
         segment = s[pos:pos+segment_len]
         results = model(segment, is_final=False)
+        if results is not None and len(results) > 0:
+            nbests = [text for text, token, token_int, hyp in results]
+            text = nbests[0] if nbests is not None and len(nbests) > 0 else ""
+            print(f'[LOG]: intermediate result: {text}\r', file=sys.stderr, end='')
+    print('', file=sys.stderr)
     results = model(torch.empty(0), is_final=True)
     
     print(f'Result: {results[0][0]}')
