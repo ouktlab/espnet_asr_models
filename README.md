@@ -70,7 +70,8 @@ print(f'Result: {results[0][0]}')
 ```
 
 ### Case: Streaming ASR (GPU processing is recommended)
-Use "streaming.py" for "low-latency" streaming processing. The total processing cost of it may be larger than that of batch processing. This model may be suitable for spoken dialogue system.
+Use "streaming.py" for "low-latency" streaming processing. The total processing cost of it may be larger than that of batch processing.
+This model may be suitable for spoken dialogue system.
 ```
 . venv/bin/activate            # only once
 python3 streaming.py sample.wav
@@ -108,7 +109,10 @@ for pos in range(0, len(s), segment_len):
     # sometimes includes intermediate result for longer input
 results = model(torch.empty(0), is_final=True)
 ```
-Note that the option "disable_repetition_detection" is required to obtain intermediate recognition results.
+
+Please set an appropriate "beam_size" to reduce the latency time because the default beam_size 40 may be large for real-time recognition. 
+
+**Note that the option "disable_repetition_detection" is required to obtain intermediate recognition results.**
 
 
 See [pyadintool](https://github.com/ouktlab/pyadintool) ASR example for real-time streaming ASR. 
@@ -278,10 +282,10 @@ model = Speech2Text.from_pretrained(
 
 ### Modification for streaming ASR
 It is better to change the default parameters of ContextualBlockTransformer 
-because these of our models are slightly different from defaults of streaming ASR.  
+because some of our models are slightly different from defaults of streaming ASR.  
 We may be able to get intermediate results more frequently by changing these parameters. 
 
-Our settings
+Our settings (*corpus10* models)
 ```
   block_size: int = 20,
   hop_size: int = 8,
