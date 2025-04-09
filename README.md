@@ -1,6 +1,8 @@
 # ESPnet ASR models
-This repository provides trained ESPnet ASR models in "Japanese" and some examples. 
+This repository provides pretrained ESPnet ASR models in "Japanese" and some examples. 
 These models are developed mainly for academic research. 
+
+Please see [extrakit](https://github.com/ouktlab/espnet_asr_extrakit) and [pyadintool](https://github.com/ouktlab/pyadintool) if you are interested in other example codes.
 
 ## Features
 * Support Japanese models
@@ -165,6 +167,9 @@ Audio and transcription with ID D*  in CSJ corpus were excluded from training da
   - model: contextual-block-transformer ASR + RNN LM
   - audio: CSJ clean speech + augmented speech -- reverberant speech, and mixture of speech and non-speech signal
   - text: CSJ transcription + BCCWJ
+- [ouktlab/espnet_asr-ja-mc-stream_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b](https://huggingface.co/ouktlab/espnet_asr-ja-mc-stream_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b)
+  - model: contextual-block-transformer ASR + transformer LM.
+  - recommended setting of CTC and language model weights: (0.21, 0.30) . Default setting is not the best.
 
 ### Katakana Models
 These models are used to estimate Japanese Katakana characters (syllable/pronunciation symbols) from speech signal. The "Katakana" transcription used in training is based on notion of pronunciation. 
