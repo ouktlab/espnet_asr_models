@@ -6,7 +6,7 @@ Please see [extrakit](https://github.com/ouktlab/espnet_asr_extrakit) and [pyadi
 
 ## Features
 * Support Japanese models
-* Support Noise-robust models
+* Support noise-robust models for raw recoding data (not for audio data of movie file, and compressed audio data)
 * Support batch and streaming models (ContextualBlockTransformer for streaming)
 * Support Kanji-Katakana-Hiragana and Katakana (Syllable-like) character models
 * Recognition of fillers and hesitations (deletion error rate is basically small)
