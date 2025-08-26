@@ -321,7 +321,7 @@ These syllable-to-character translation (SCT) models are not ESPnet models, but 
 SCT models estimate Japanese characters (Kanji, Hiragana, Katakan) from Japanese Katakana characters (syllable/pronunciation symbols). 
 ASR is achieved by combining Katakana- (syllable-)ASR models with SCT models. In this framework, we can design and develop each model independently, which will improve model portability.
 
-The training of SCT model requires only parallel text (pairs of Katakana/Syllable and Kanji-Katakana-Hiragana sequences), in other words, audio data is not required. 
+The training of SCT model requires only parallel text (pairs of Katakana/Syllable and Kanji-Katakana-Hiragana sequences), in other words, audio data are not required. 
 - アラユルゲンジツオ  あらゆる現実を
 
 We can do fine-tuning or scrach-training of these models using other models by "transformers" library. 
@@ -330,10 +330,10 @@ We can do fine-tuning or scrach-training of these models using other models by "
 
 - [ouktlab/character_tokenizer_jis_v1](https://huggingface.co/ouktlab/character_tokenizer_jis_v1)
   - unit: character
-  - vocabulary set: JIS X 2013
+  - vocabulary set: JIS X 0213 (Japanese Industrial Standard for coded character sets)
 - [ouktlab/character_tokenizer_jis_v2](https://huggingface.co/ouktlab/character_tokenizer_jis_v2)
   - unit: character
-  - vocabulary set: JIS X 2013 -- Zenkaku period (for decimal point) is added correctly. 
+  - vocabulary set: JIS X 0213 (Japanese Industrial Standard for coded character sets) -- Zenkaku period (for decimal point) is added correctly. 
 
 #### T5 for Conditional Generation
 These preliminary models use T5 model for conditional generation. Note that architechtures and tokenizers have not been optimized yet.   
