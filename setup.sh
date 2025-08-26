@@ -14,7 +14,7 @@ if [ $stage -le 0 ]; then
     
     ${python} -m venv venv/
     . venv/bin/activate
-    ${python} -m pip install espnet torchaudio
+    ${python} -m pip install espnet torchaudio transformers soxr
     ${python} -m pip install -U espnet_model_zoo
 fi
 
