@@ -238,9 +238,9 @@ Audio and transcription with ID D*  in CSJ corpus were excluded from training da
   - model: transformer ASR + transformer LM.
   - audio: 10 corpora with transcription ([CSJ](https://clrd.ninjal.ac.jp/csj/), [S-JNAS](https://research.nii.ac.jp/src/S-JNAS.html), [TMW](https://research.nii.ac.jp/src/TMW.html), [JEIDA-JCSD](https://research.nii.ac.jp/src/JEIDA-JCSD.html),[ETL-WD](https://research.nii.ac.jp/src/ETL-WD.html), [RIKEN-DLG](https://research.nii.ac.jp/src/RIKEN-DLG.html), [APP, APPDIC](https://www.atr-p.com/products/sdb.html#MS), [SLC-3](https://alaginrc.nict.go.jp/slc-outline.html#3), [JVS](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus)) + augmented speech
     - age distribution: from children to the elderly
-    - augmentation: reverberation, non-speech signal (MUSAN, WHAM!, ProSoundEffect)
+    - augmentation: reverberation, non-speech signal ([MUSAN](https://www.openslr.org/17/), [WHAM!](http://wham.whisper.ai/), ProSoundEffect)
     - text standardization: CSJ transcription rule
-  - text: transcription of 10 corpora (CSJ, S-JNAS, TMW, JEIDA-JCSD, ETL-WD, RIKEN-DLG, APP, APPDIC, SLC-3, JVS), bccwj, wiki40b-ja (2024/8/23)
+  - text: transcription of 10 corpora (CSJ, S-JNAS, TMW, JEIDA-JCSD, ETL-WD, RIKEN-DLG, APP, APPDIC, SLC-3, JVS), bccwj, wiki40b-ja, wikipedia-title (2024/8/23)
     - text standardization:  CSJ transcription rule with best effort
   - recommended setting of CTC and language model weights: (0.21, 0.30) . Default setting is not the best.
 
@@ -261,7 +261,7 @@ Audio and transcription with ID D*  in CSJ corpus were excluded from training da
   - model: contextual-block-transformer ASR + transformer LM.
   - audio: 10 corpora with transcription ([CSJ](https://clrd.ninjal.ac.jp/csj/), [S-JNAS](https://research.nii.ac.jp/src/S-JNAS.html), [TMW](https://research.nii.ac.jp/src/TMW.html), [JEIDA-JCSD](https://research.nii.ac.jp/src/JEIDA-JCSD.html),[ETL-WD](https://research.nii.ac.jp/src/ETL-WD.html), [RIKEN-DLG](https://research.nii.ac.jp/src/RIKEN-DLG.html), [APP, APPDIC](https://www.atr-p.com/products/sdb.html#MS), [SLC-3](https://alaginrc.nict.go.jp/slc-outline.html#3), [JVS](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus)) + augmented speech
     - age distribution: from children to the elderly
-    - augmentation: reverberation, non-speech signal (MUSAN, WHAM!, ProSoundEffect)
+    - augmentation: reverberation, non-speech signal ([MUSAN](https://www.openslr.org/17/), [WHAM!](http://wham.whisper.ai/), ProSoundEffect)
     - text standardization: CSJ transcription rule
   - text: transcription of 10 corpora (CSJ, S-JNAS, TMW, JEIDA-JCSD, ETL-WD, RIKEN-DLG, APP, APPDIC, SLC-3, JVS), bccwj, wiki40b-ja, wikipedia-title (2024/8/23)
     - text standardization:  CSJ transcription rule with best effort
@@ -288,7 +288,7 @@ Audio and transcription with ID D* in CSJ corpus were excluded from training dat
   - model: transformer ASR and transformer LM.
   - audio: 10 corpora with transcription ([CSJ](https://clrd.ninjal.ac.jp/csj/), [S-JNAS](https://research.nii.ac.jp/src/S-JNAS.html), [TMW](https://research.nii.ac.jp/src/TMW.html), [JEIDA-JCSD](https://research.nii.ac.jp/src/JEIDA-JCSD.html),[ETL-WD](https://research.nii.ac.jp/src/ETL-WD.html), [RIKEN-DLG](https://research.nii.ac.jp/src/RIKEN-DLG.html), [APP, APPDIC](https://www.atr-p.com/products/sdb.html#MS), [SLC-3](https://alaginrc.nict.go.jp/slc-outline.html#3), [JVS](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus)) + augmented speech
     - age distribution: from children to the elderly
-    - augmentation: reverberation, non-speech signal (MUSAN, WHAM!, ProSoundEffect)
+    - augmentation: reverberation, non-speech signal ([MUSAN](https://www.openslr.org/17/), [WHAM!](http://wham.whisper.ai/), ProSoundEffect)
     - text standardization: CSJ transcription rule
   - text: transcription of 10 corpora (CSJ, S-JNAS, TMW, JEIDA-JCSD, ETL-WD, RIKEN-DLG, APP, APPDIC, SLC-3, JVS), bccwj, wiki40b-ja, wikipedia-title (2024/8/23)
     - text standardization:  CSJ transcription rule with best effort
@@ -307,7 +307,7 @@ Audio and transcription with ID D* in CSJ corpus were excluded from training dat
   - model: contextual-block-transformer ASR + transformer LM
   - audio: 10 corpora with transcription ([CSJ](https://clrd.ninjal.ac.jp/csj/), [S-JNAS](https://research.nii.ac.jp/src/S-JNAS.html), [TMW](https://research.nii.ac.jp/src/TMW.html), [JEIDA-JCSD](https://research.nii.ac.jp/src/JEIDA-JCSD.html),[ETL-WD](https://research.nii.ac.jp/src/ETL-WD.html), [RIKEN-DLG](https://research.nii.ac.jp/src/RIKEN-DLG.html), [APP, APPDIC](https://www.atr-p.com/products/sdb.html#MS), [SLC-3](https://alaginrc.nict.go.jp/slc-outline.html#3), [JVS](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus)) + augmented speech
     - age distribution: from children to the elderly
-    - augmentation: reverberation, non-speech signal (MUSAN, WHAM!, ProSoundEffect)
+    - augmentation: reverberation, non-speech signal ([MUSAN](https://www.openslr.org/17/), [WHAM!](http://wham.whisper.ai/), ProSoundEffect)
     - text standardization: CSJ transcription rule
   - text: transcription of 10 corpora (CSJ, S-JNAS, TMW, JEIDA-JCSD, ETL-WD, RIKEN-DLG, APP, APPDIC, SLC-3, JVS), bccwj, wiki40b-ja, wikipedia-title (2024/8/23)
     - text standardization:  CSJ transcription rule with best effort
@@ -338,7 +338,7 @@ We can do fine-tuning or scrach-training of these models using other models by "
 #### T5 for Conditional Generation
 These preliminary models use T5 model for conditional generation. Note that architechtures and tokenizers have not been optimized yet.   
 
-Please note that our pause (non-speech) symbol, "…", also plays a role of separator among sentences or words segmented by VAD. 
+Please note that our pause (non-speech) symbol, "…", also plays a role of separator among sentences or words segmented by VAD or hands. 
 
 - [ouktlab/t5_sct-jis-v1_corpus10-bccwj-wiki40b_std](https://huggingface.co/ouktlab/t5_sct-jis-v1_corpus10-bccwj-wiki40b_std)
   - tokenizer: character jis v1
@@ -531,10 +531,10 @@ We shall not be liable for any trouble, loss and damage caused by the use of mod
 
 # Citations
 ### Syllable-based ASR and SCT approach
-- ASR and SCT models using "10 corpora" data set
+- ASR (both of character and syllable) and SCT models using "10 corpora" data set
 - ASR performance comparison
 ```
-@inproceedings {
+@inproceedings {rtakeda2025:apsipa,
   author={Ryu Takeda and Kazunori Komatani},
   title={Reducing Orthographic Dependency on Paired Data by Probabilistic Integration via Syllabogram for Japanese Dialogue Speech Recognition},
   year={2025},
