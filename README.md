@@ -6,7 +6,7 @@ Model parameters are available at [our model hub](https://huggingface.co/ouktlab
 Please see [extrakit](https://github.com/ouktlab/espnet_asr_extrakit) and [pyadintool](https://github.com/ouktlab/pyadintool) if you are interested in other example codes, such as fine-tuning.
 
 ## Features
-* Support Japanese models trained with **human-annotated (transciption) corpora**
+* Support Japanese models trained with **human-annotated (accurate transciption) corpora**
 * Support noise-robust models for raw recoding data (not for audio data of movie file, and compressed audio data)
 * Support batch and streaming models (ContextualBlockTransformer for streaming)
 * Support Kanji-Katakana-Hiragana and Katakana (Syllable-like) character ASR models
@@ -14,6 +14,23 @@ Please see [extrakit](https://github.com/ouktlab/espnet_asr_extrakit) and [pyadi
 * Recognition of fillers and hesitations (deletion error rate is basically small)
 
 ## Requirements
+
+#### Latest (2025/10/27)
+Python and ESPnet are required.
+- espnet
+- torchaudio
+- torchcodec
+- espnet_model_zoo
+
+Some libraries may require g++ libary on ubuntu.
+- g++
+- ffmpeg
+
+If you use language model, transformers library is also required in addition to them.
+- transformers
+- soxr
+
+#### Previous (deprecated)
 Python and ESPnet are required.
 - espnet
 - torchaudio
@@ -23,16 +40,42 @@ If you use language model, transformers library is also required in addition to 
 - transformers
 - soxr
 
-Python3.10 is suitable for installation of ESPnet (as of 2024/8). 
+Python3.10 is suitable for installation of ESPnet (as of 2024/8).  
 
 ## How to use
 ### Set up ESPnet
+#### Latest (2025/10/27)
+```
+sudo apt install g++ ffmpeg
+python3 -m venv venv
+. venv/bin/activate
+python3 -m pip install espnet torchaudio torchcodec
+python3 -m pip install -U espnet_model_zoo
+```
+
+If you want to try language models, please install "transformers".
+```
+sudo apt install g++ ffmpeg
+python3 -m venv venv
+. venv/bin/activate
+python3 -m pip install espnet torchaudio transformers soxr torchcodec
+python3 -m pip install -U espnet_model_zoo
+```
+
+If you want to setup automatically, run the shell script "setup.sh" using python3.12.
+This scripts creates virtual environment and install espnet.
+```
+sh setup.sh
+```
+
+#### Previous (deprecated)
 ```
 python3 -m venv venv
 . venv/bin/activate
 python3 -m pip install espnet torchaudio
 python3 -m pip install -U espnet_model_zoo
 ```
+
 If you want to try language models, please install "transformers".
 ```
 python3 -m venv venv
@@ -42,11 +85,6 @@ python3 -m pip install -U espnet_model_zoo
 ```
 
 
-If you want to setup automatically, run the shell script "setup.sh".
-This scripts creates virtual environment and install espnet.
-```
-sh setup.sh
-```
 
 ### Case: Normal ASR (batch)
 Use "batch.py" for batch processing (start to recognize after a whole input signal is given).
@@ -243,6 +281,8 @@ Audio and transcription with ID D*  in CSJ corpus were excluded from training da
   - text: transcription of 10 corpora (CSJ, S-JNAS, TMW, JEIDA-JCSD, ETL-WD, RIKEN-DLG, APP, APPDIC, SLC-3, JVS), bccwj, wiki40b-ja, wikipedia-title (2024/8/23)
     - text standardization:  CSJ transcription rule with best effort
   - recommended setting of CTC and language model weights: (0.21, 0.30) . Default setting is not the best.
+  - a pause symbol '…' is included for non-speech or silence section.
+  - alphabetical letters are represented by Hankaku, not Zenkaku
 
 #### Streaming
 - [ouktlab/espnet_streaming_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_csj_asr_train_asr_transformer_lm_rnn)
@@ -266,6 +306,8 @@ Audio and transcription with ID D*  in CSJ corpus were excluded from training da
   - text: transcription of 10 corpora (CSJ, S-JNAS, TMW, JEIDA-JCSD, ETL-WD, RIKEN-DLG, APP, APPDIC, SLC-3, JVS), bccwj, wiki40b-ja, wikipedia-title (2024/8/23)
     - text standardization:  CSJ transcription rule with best effort
   - recommended setting of CTC and language model weights: (0.21, 0.30) . Default setting is not the best.
+  - a pause symbol '…' is included for non-speech or silence section.
+  - alphabetical letters are represented by Hankaku, not Zenkaku
 
 ### Katakana Models
 These models are used to estimate Japanese Katakana characters (syllable/pronunciation symbols) from speech signal. The "Katakana" transcription used in training is based on notion of pronunciation. 
@@ -293,6 +335,7 @@ Audio and transcription with ID D* in CSJ corpus were excluded from training dat
   - text: transcription of 10 corpora (CSJ, S-JNAS, TMW, JEIDA-JCSD, ETL-WD, RIKEN-DLG, APP, APPDIC, SLC-3, JVS), bccwj, wiki40b-ja, wikipedia-title (2024/8/23)
     - text standardization:  CSJ transcription rule with best effort
   - recommended setting of CTC and language model: (0.21, 0.30) or (0.19, 0.35) . Default setting is not the best.
+  - a pause symbol '…' is included for non-speech or silence section.
 
 #### Streaming
 - [ouktlab/espnet_streaming_katakana_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_katakana_csj_asr_train_asr_transformer_lm_rnn)
@@ -312,6 +355,7 @@ Audio and transcription with ID D* in CSJ corpus were excluded from training dat
   - text: transcription of 10 corpora (CSJ, S-JNAS, TMW, JEIDA-JCSD, ETL-WD, RIKEN-DLG, APP, APPDIC, SLC-3, JVS), bccwj, wiki40b-ja, wikipedia-title (2024/8/23)
     - text standardization:  CSJ transcription rule with best effort
   - recommended setting of CTC and language model: (0.21, 0.30) or (0.19, 0.35) . Default setting is not the best.
+  - a pause symbol '…' is included for non-speech or silence section.
 
 ### Syllable-to-Character Translation (SCT) Models 
 These syllable-to-character translation (SCT) models are not ESPnet models, but they can be used for Japanese ASR based on syllable (Katakana)-ASR and KanaKanji-Convresion. The following is an example of such ASR framework.
@@ -354,6 +398,15 @@ Please note that our pause (non-speech) symbol, "…", also plays a role of sepa
   - text: 10 corpora + bccwj + wiki40b-ja + wikipedia-title (2024/8/23)
   - augmentation: syllable-ASR error simulation using MASK token
   - estimation of word pronunciation for text only data set: mecab with unidic and NEologd dictionaries
+
+Some filler words are tagged as follows by several modes above:
+
+```
+エーニセンジューハチネンノイチガツカラ…ンーホーソーサレルヨーデスヨ
+```
+```
+(S:えー)二千十八年の一月から…(S:んー)放送されるようですよ
+```
 
 #### Usage and Example
 We can use the SCT models by using AutoTokenizer and ConditionalGeneration classed. Please note that "trust_remote_code" option is required because our tokenizer is customized.  
@@ -538,6 +591,7 @@ We shall not be liable for any trouble, loss and damage caused by the use of mod
   author={Ryu Takeda and Kazunori Komatani},
   title={Reducing Orthographic Dependency on Paired Data by Probabilistic Integration via Syllabogram for Japanese Dialogue Speech Recognition},
   year={2025},
-  booktitle={Proceedings of Asia-Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC) (to appear)},
+  pages={549--554},
+  booktitle={Proceedings of Asia-Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC)},
 }
 ```
