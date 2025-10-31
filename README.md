@@ -398,6 +398,12 @@ Please note that our pause (non-speech) symbol, "…", also plays a role of sepa
   - text: 10 corpora + bccwj + wiki40b-ja + wikipedia-title (2024/8/23)
   - augmentation: syllable-ASR error simulation using MASK token
   - estimation of word pronunciation for text only data set: mecab with unidic and NEologd dictionaries
+- [ouktlab/t5_rsct-jis-v2_corpus10-bccwj-wiki40b_mask-1.00](https://huggingface.co/ouktlab/t5_rsct-jis-v2_corpus10-bccwj-wiki40b_mask-1.00)
+  - tokenizer: character jis v2
+  - text: 10 corpora + bccwj + wiki40b-ja + wikipedia-title (2024/8/23)
+  - augmentation: syllable-ASR error simulation using MASK token
+  - estimation of word pronunciation for text only data set: mecab with unidic and NEologd dictionaries
+  - all strings are reversed: input `オツジンゲルユラア`, output `を実現るゆらあ`
 
 Some filler words are tagged as follows by several modes above:
 
