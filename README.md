@@ -165,7 +165,7 @@ for pos in range(0, len(s), segment_len):
 results = model(torch.empty(0), is_final=True)
 ```
 
-Please set an appropriate "beam_size" to reduce the latency time because the default beam_size 40 may be large for real-time recognition. 
+Please set an appropriate ```beam_size``` to reduce the latency time because the default beam_size 40 may be large for real-time recognition.  The ```segment_len``` parameter of this example is aslo not optimal. 
 
 **Note that the option "disable_repetition_detection" is required to obtain intermediate recognition results.**
 
@@ -448,6 +448,12 @@ Please run "sct.py", and you will get the translation result.
 -8.95e-02 二千十八年の一月から…放送されるようですよ
 ```
 
+### Character-to-Syllable Conversion Models
+#### T5 for Conditional Generation
+These preliminary models use T5 model for conditional generation. Note that architechtures and tokenizers have not been optimized yet.   
+
+- [ouktlab/t5_g2p-jis-v2_corpus10-bccwj-wiki40b_std](https://huggingface.co/ouktlab/t5_g2p-jis-v2_corpus10-bccwj-wiki40b_std)
+  - tokenizer: character jis v2
 
 ### Language Model for verification of recognition result
 #### GPTNeoX
