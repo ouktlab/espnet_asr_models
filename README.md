@@ -460,6 +460,7 @@ These preliminary models use T5 model for conditional generation. Note that arch
 
 - [ouktlab/t5_g2p-jis-v2_corpus10-bccwj-wiki40b_std](https://huggingface.co/ouktlab/t5_g2p-jis-v2_corpus10-bccwj-wiki40b_std)
   - tokenizer: character jis v2
+  - use `unicodedata.normalize` method with `NFKC` option for pre-processing (minimum)
 
 ### Language Model for verification of recognition result
 #### GPTNeoX
