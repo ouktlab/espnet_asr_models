@@ -7,11 +7,21 @@ Please see [extrakit](https://github.com/ouktlab/espnet_asr_extrakit) and [pyadi
 
 ## Features
 * Support Japanese models trained with **human-annotated (accurate transciption) corpora**
+* Recognition of **fillers** and **hesitations** (deletion error rate is basically small)
 * Support noise-robust models for raw recoding data (not for audio data of movie file, and compressed audio data)
 * Support batch and streaming models (ContextualBlockTransformer for streaming)
 * Support Kanji-Katakana-Hiragana and Katakana (Syllable-like) character ASR models
 * Support Syllable (Katakana)-to-Character translation (SCT) models (update 2025/8)
-* Recognition of fillers and hesitations (deletion error rate is basically small)
+* Support Character-to-Syllable(Katakana) translation models (like G2P) (update 2025/10)
+
+## Contents
+- [How to use](#how_to_use)
+- [Available pre-trained models](#available_pretrained_models)
+  - [Character-based ASR](#character_based_asr)
+  - [Syllable-based ASR](#syllable_based_asr)
+  - [Syllable-to-Character Translation (Convertion)](#syllable_to_character_translation)
+  - [Character-to-Syllable Translation (Convertion)](#character_to_syllable_translation)
+- [Others](#others)
 
 ## Requirements
 
@@ -41,6 +51,8 @@ If you use language model, transformers library is also required in addition to 
 - soxr
 
 Python3.10 is suitable for installation of ESPnet (as of 2024/8).  
+
+<a id="how_to_use"></a>
 
 ## How to use
 ### Set up ESPnet
@@ -240,6 +252,7 @@ for i, output_ids in enumerate(outputs['sequences']):
   print(tokenizer.decode(output_ids, skip_special_tokens=True))  
 ```
 
+<a id="available_pretrained_models"></a>
 
 ## Available Pre-trained Models
 Some models are available at huggingface under cc-by-nc-4.0 license. 
@@ -253,8 +266,8 @@ Some models are available at huggingface under cc-by-nc-4.0 license.
   - Non-speech section may affect the performance
   - Other pre-processings, such as speech enhancement, sound source separation, may degrade the performance of some models
 
-
-### Kanji-Katakana-Hiragana Models
+<a id="character_based_asr"></a>
+### Kanji-Katakana-Hiragana Models (Character-based ASR)
 These models are used to estimate Japanese characters from speech signal.
 ```
 あらゆる現実をすべて自分の方へねじ曲げたのだ
@@ -309,7 +322,9 @@ Audio and transcription with ID D*  in CSJ corpus were excluded from training da
   - a pause symbol '…' is included for non-speech or silence section.
   - alphabetical letters are represented by Hankaku, not Zenkaku
 
-### Katakana Models
+<a id="syllable_based_asr"></a>
+
+### Katakana Models (Syllable-based ASR)
 These models are used to estimate Japanese Katakana characters (syllable/pronunciation symbols) from speech signal. The "Katakana" transcription used in training is based on notion of pronunciation. 
 - ヲ, ヘ and ヅ are converted into オ, エ and ズ due to their pronuciation. 
 - Some vowels are converted into a long vowel: ホウ -> ホー. 
@@ -356,6 +371,9 @@ Audio and transcription with ID D* in CSJ corpus were excluded from training dat
     - text standardization:  CSJ transcription rule with best effort
   - recommended setting of CTC and language model: (0.21, 0.30) or (0.19, 0.35) . Default setting is not the best.
   - a pause symbol '…' is included for non-speech or silence section.
+
+
+<a id="syllable_to_character_translation"></a>
 
 ### Syllable-to-Character Translation (SCT) Models 
 These syllable-to-character translation (SCT) models are not ESPnet models, but they can be used for Japanese ASR based on syllable (Katakana)-ASR and KanaKanji-Convresion. The following is an example of such ASR framework.
@@ -454,6 +472,8 @@ Please run "sct.py", and you will get the translation result.
 -8.95e-02 二千十八年の一月から…放送されるようですよ
 ```
 
+<a id="character_to_syllable_translation"></a>
+
 ### Character-to-Syllable Conversion Models
 #### T5 for Conditional Generation
 These preliminary models use T5 model for conditional generation. Note that architechtures and tokenizers have not been optimized yet.   
@@ -461,12 +481,17 @@ These preliminary models use T5 model for conditional generation. Note that arch
 - [ouktlab/t5_g2p-jis-v2_corpus10-bccwj-wiki40b_std](https://huggingface.co/ouktlab/t5_g2p-jis-v2_corpus10-bccwj-wiki40b_std)
   - tokenizer: character jis v2
   - use `unicodedata.normalize` method with `NFKC` option for pre-processing (minimum)
+  - it is better to epress numbers in Kanji
+    - 1000日 -> 千日
+    - 6日 -> 六日
 
 ### Language Model for verification of recognition result
 #### GPTNeoX
 - [gptneox_ja-neox-small_corpus10-bccwj-wiki40b](https://huggingface.co/ouktlab/gptneox_ja-neox-small_corpus10-bccwj-wiki40b)
   - tokenizer: rinna/japanese-gpt-neox-small
   - text: corpus10 + bccwj + wiki40b-ja + wikipedia-title (2024/8/23)
+
+<a id="others"></a>
 
 ## Others
 ### Download Model
