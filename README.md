@@ -279,15 +279,15 @@ Audio and transcription with ID D*  in CSJ corpus were excluded from training da
 #### Batch
 - [ouktlab/espnet_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_csj_asr_train_asr_transformer_lm_rnn)
   - model: transformer ASR + RNN LM.
-  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech
+  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech (about 690 hrs.)
   - text: CSJ transcription
 - [ouktlab/espnet_robustcsj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_robustcsj_asr_train_asr_transformer_lm_rnn)
   - model: transformer ASR + RNN LM.
-  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech + augmented speech -- reverberant speech, and mixture of speech and non-speech signal
+  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech (about 690 hrs.) + augmented speech -- reverberant speech, and mixture of speech and non-speech signal
   - text: CSJ transcription
 - [ouktlab/espnet_asr-ja-mc_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b](https://huggingface.co/ouktlab/espnet_asr-ja-mc_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b)
   - model: transformer ASR + transformer LM.
-  - audio: 10 corpora with transcription ([CSJ](https://clrd.ninjal.ac.jp/csj/), [S-JNAS](https://research.nii.ac.jp/src/S-JNAS.html), [TMW](https://research.nii.ac.jp/src/TMW.html), [JEIDA-JCSD](https://research.nii.ac.jp/src/JEIDA-JCSD.html),[ETL-WD](https://research.nii.ac.jp/src/ETL-WD.html), [RIKEN-DLG](https://research.nii.ac.jp/src/RIKEN-DLG.html), [APP, APPDIC](https://www.atr-p.com/products/sdb.html#MS), [SLC-3](https://alaginrc.nict.go.jp/slc-outline.html#3), [JVS](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus)) + augmented speech
+  - audio: 10 corpora with transcription ([CSJ](https://clrd.ninjal.ac.jp/csj/), [S-JNAS](https://research.nii.ac.jp/src/S-JNAS.html), [TMW](https://research.nii.ac.jp/src/TMW.html), [JEIDA-JCSD](https://research.nii.ac.jp/src/JEIDA-JCSD.html),[ETL-WD](https://research.nii.ac.jp/src/ETL-WD.html), [RIKEN-DLG](https://research.nii.ac.jp/src/RIKEN-DLG.html), [APP, APPDIC](https://www.atr-p.com/products/sdb.html#MS), [SLC-3](https://alaginrc.nict.go.jp/slc-outline.html#3), [JVS](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus)) (total 900 hrs.) + augmented speech
     - age distribution: from children to the elderly
     - augmentation: reverberation, non-speech signal ([MUSAN](https://www.openslr.org/17/), [WHAM!](http://wham.whisper.ai/), ProSoundEffect)
     - text standardization: CSJ transcription rule
@@ -300,19 +300,19 @@ Audio and transcription with ID D*  in CSJ corpus were excluded from training da
 #### Streaming
 - [ouktlab/espnet_streaming_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_csj_asr_train_asr_transformer_lm_rnn)
   - model: contextual-block-transformer ASR + RNN LM 
-  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech
+  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech (about 690 hrs.)
   - text: CSJ transcription
 - [ouktlab/espnet_streaming_robustcsj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_robustcsj_asr_train_asr_transformer_lm_rnn)
   - model: contextual-block-transformer ASR + RNN LM
-  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech + augmented speech -- reverberant speech, and mixture of speech and non-speech signal
+  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech (about 690 hrs.)+ augmented speech -- reverberant speech, and mixture of speech and non-speech signal
   - text: CSJ transcription
 - [ouktlab/espnet_streaming_robustcsj_csjbccwj-v01_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_robustcsj_csjbccwj-v01_asr_train_asr_transformer_lm_rnn)
   - model: contextual-block-transformer ASR + RNN LM
-  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech + augmented speech -- reverberant speech, and mixture of speech and non-speech signal
+  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech (about 690 hrs.) + augmented speech -- reverberant speech, and mixture of speech and non-speech signal
   - text: CSJ transcription + BCCWJ
 - [ouktlab/espnet_asr-ja-mc-stream_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b](https://huggingface.co/ouktlab/espnet_asr-ja-mc-stream_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b)
   - model: contextual-block-transformer ASR + transformer LM.
-  - audio: 10 corpora with transcription ([CSJ](https://clrd.ninjal.ac.jp/csj/), [S-JNAS](https://research.nii.ac.jp/src/S-JNAS.html), [TMW](https://research.nii.ac.jp/src/TMW.html), [JEIDA-JCSD](https://research.nii.ac.jp/src/JEIDA-JCSD.html),[ETL-WD](https://research.nii.ac.jp/src/ETL-WD.html), [RIKEN-DLG](https://research.nii.ac.jp/src/RIKEN-DLG.html), [APP, APPDIC](https://www.atr-p.com/products/sdb.html#MS), [SLC-3](https://alaginrc.nict.go.jp/slc-outline.html#3), [JVS](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus)) + augmented speech
+  - audio: 10 corpora with transcription ([CSJ](https://clrd.ninjal.ac.jp/csj/), [S-JNAS](https://research.nii.ac.jp/src/S-JNAS.html), [TMW](https://research.nii.ac.jp/src/TMW.html), [JEIDA-JCSD](https://research.nii.ac.jp/src/JEIDA-JCSD.html),[ETL-WD](https://research.nii.ac.jp/src/ETL-WD.html), [RIKEN-DLG](https://research.nii.ac.jp/src/RIKEN-DLG.html), [APP, APPDIC](https://www.atr-p.com/products/sdb.html#MS), [SLC-3](https://alaginrc.nict.go.jp/slc-outline.html#3), [JVS](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus)) (total 900 hrs.) + augmented speech
     - age distribution: from children to the elderly
     - augmentation: reverberation, non-speech signal ([MUSAN](https://www.openslr.org/17/), [WHAM!](http://wham.whisper.ai/), ProSoundEffect)
     - text standardization: CSJ transcription rule
@@ -337,13 +337,13 @@ Audio and transcription with ID D* in CSJ corpus were excluded from training dat
 #### Batch
 - [ouktlab/espnet_katakana_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_katakana_csj_asr_train_asr_transformer_lm_rnn)
   - model: transformer ASR and RNN LM.
-  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech
+  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech (about 690 hrs.)
   - text: CSJ transcription
 - [ouktlab/espnet_katakana_robustcorpus10_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_katakana_robustcorpus10_asr_train_asr_transformer_lm_rnn)
   - model: transformer ASR and RNN LM.
 - [ouktlab/espnet_asr-ja-kc_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b](https://huggingface.co/ouktlab/espnet_asr-ja-kc_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b)
   - model: transformer ASR and transformer LM.
-  - audio: 10 corpora with transcription ([CSJ](https://clrd.ninjal.ac.jp/csj/), [S-JNAS](https://research.nii.ac.jp/src/S-JNAS.html), [TMW](https://research.nii.ac.jp/src/TMW.html), [JEIDA-JCSD](https://research.nii.ac.jp/src/JEIDA-JCSD.html),[ETL-WD](https://research.nii.ac.jp/src/ETL-WD.html), [RIKEN-DLG](https://research.nii.ac.jp/src/RIKEN-DLG.html), [APP, APPDIC](https://www.atr-p.com/products/sdb.html#MS), [SLC-3](https://alaginrc.nict.go.jp/slc-outline.html#3), [JVS](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus)) + augmented speech
+  - audio: 10 corpora with transcription ([CSJ](https://clrd.ninjal.ac.jp/csj/), [S-JNAS](https://research.nii.ac.jp/src/S-JNAS.html), [TMW](https://research.nii.ac.jp/src/TMW.html), [JEIDA-JCSD](https://research.nii.ac.jp/src/JEIDA-JCSD.html),[ETL-WD](https://research.nii.ac.jp/src/ETL-WD.html), [RIKEN-DLG](https://research.nii.ac.jp/src/RIKEN-DLG.html), [APP, APPDIC](https://www.atr-p.com/products/sdb.html#MS), [SLC-3](https://alaginrc.nict.go.jp/slc-outline.html#3), [JVS](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus)) (total 900 hrs.) + augmented speech
     - age distribution: from children to the elderly
     - augmentation: reverberation, non-speech signal ([MUSAN](https://www.openslr.org/17/), [WHAM!](http://wham.whisper.ai/), ProSoundEffect)
     - text standardization: CSJ transcription rule
@@ -355,15 +355,15 @@ Audio and transcription with ID D* in CSJ corpus were excluded from training dat
 #### Streaming
 - [ouktlab/espnet_streaming_katakana_csj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_katakana_csj_asr_train_asr_transformer_lm_rnn)
   - model: contextual-block-transformer ASR + RNN LM 
-  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech
+  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech (about 690 hrs.)
   - text: CSJ transcription
 - [ouktlab/espnet_streaming_katakana_robustcsj_asr_train_asr_transformer_lm_rnn](https://huggingface.co/ouktlab/espnet_streaming_katakana_robustcsj_asr_train_asr_transformer_lm_rnn)
   - model: contextual-block-transformer ASR + RNN LM 
-  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech + augmented speech -- reverberant speech, and mixture of speech and non-speech signal
+  - audio: [CSJ](https://clrd.ninjal.ac.jp/csj/) clean speech (about 690 hrs.) + augmented speech -- reverberant speech, and mixture of speech and non-speech signal
   - text: CSJ transcription
 - [ouktlab/espnet_asr-ja-kc-stream_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b](https://huggingface.co/ouktlab/espnet_asr-ja-kc-stream_am-transformer-robustcorpus10_lm-transformer-corpus10-bccwj-wiki40b)
   - model: contextual-block-transformer ASR + transformer LM
-  - audio: 10 corpora with transcription ([CSJ](https://clrd.ninjal.ac.jp/csj/), [S-JNAS](https://research.nii.ac.jp/src/S-JNAS.html), [TMW](https://research.nii.ac.jp/src/TMW.html), [JEIDA-JCSD](https://research.nii.ac.jp/src/JEIDA-JCSD.html),[ETL-WD](https://research.nii.ac.jp/src/ETL-WD.html), [RIKEN-DLG](https://research.nii.ac.jp/src/RIKEN-DLG.html), [APP, APPDIC](https://www.atr-p.com/products/sdb.html#MS), [SLC-3](https://alaginrc.nict.go.jp/slc-outline.html#3), [JVS](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus)) + augmented speech
+  - audio: 10 corpora with transcription ([CSJ](https://clrd.ninjal.ac.jp/csj/), [S-JNAS](https://research.nii.ac.jp/src/S-JNAS.html), [TMW](https://research.nii.ac.jp/src/TMW.html), [JEIDA-JCSD](https://research.nii.ac.jp/src/JEIDA-JCSD.html),[ETL-WD](https://research.nii.ac.jp/src/ETL-WD.html), [RIKEN-DLG](https://research.nii.ac.jp/src/RIKEN-DLG.html), [APP, APPDIC](https://www.atr-p.com/products/sdb.html#MS), [SLC-3](https://alaginrc.nict.go.jp/slc-outline.html#3), [JVS](https://sites.google.com/site/shinnosuketakamichi/research-topics/jvs_corpus)) (total 900 hrs.) + augmented speech
     - age distribution: from children to the elderly
     - augmentation: reverberation, non-speech signal ([MUSAN](https://www.openslr.org/17/), [WHAM!](http://wham.whisper.ai/), ProSoundEffect)
     - text standardization: CSJ transcription rule
@@ -423,7 +423,7 @@ Please note that our pause (non-speech) symbol, "…", also plays a role of sepa
   - estimation of word pronunciation for text only data set: mecab with unidic and NEologd dictionaries
   - all strings are reversed: input `オツジンゲルユラア`, output `を実現るゆらあ`
 
-Some filler words are tagged as follows by several modes above:
+Some filler words are tagged as follows by several models above:
 
 ```
 エーニセンジューハチネンノイチガツカラ…ンーホーソーサレルヨーデスヨ
