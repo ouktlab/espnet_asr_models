@@ -1,12 +1,13 @@
 # ESPnet ASR models
 This repository provides pretrained ESPnet ASR models in **"Japanese"** and some examples. 
-These models are developed mainly for academic research and Japanese ASR baselines. 
+These models are developed mainly for **academic research** and Japanese ASR baselines. 
 Model parameters are available at [our model hub](https://huggingface.co/ouktlab). 
 
 Please see [extrakit](https://github.com/ouktlab/espnet_asr_extrakit) and [pyadintool](https://github.com/ouktlab/pyadintool) if you are interested in other example codes, such as fine-tuning.
+If you want to know or evaluate performance of models, please see [asr-ja_evalkit](https://github.com/ouktlab/asr-ja_evalkit) (just for reference purpose.)
 
 ## Features
-* Support Japanese models trained with **human-annotated (accurate transciption) corpora**
+* Support Japanese models trained with **human-annotated (accurate transcription) corpora**
 * Recognition of **fillers** and **hesitations** (deletion error rate is basically small)
 * Support noise-robust models for raw recoding data (not for audio data of movie file, and compressed audio data)
 * Support batch and streaming models (ContextualBlockTransformer for streaming)
@@ -177,7 +178,7 @@ for pos in range(0, len(s), segment_len):
 results = model(torch.empty(0), is_final=True)
 ```
 
-Please set an appropriate ```beam_size``` to reduce the latency time because the default beam_size 40 may be large for real-time recognition.  The ```segment_len``` parameter of this example is aslo not optimal. 
+Please set an appropriate ```beam_size``` to reduce the latency time because the default beam_size 40 may be large for real-time recognition.  The ```segment_len``` parameter of this example is also not optimal. 
 
 **Note that the option "disable_repetition_detection" is required to obtain intermediate recognition results.**
 
