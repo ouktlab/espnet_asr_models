@@ -578,7 +578,7 @@ It is better to change the default parameters of ContextualBlockTransformer
 because some of our models are slightly different from defaults of streaming ASR.  
 We may be able to get intermediate results more frequently by changing these parameters. 
 
-*Note that the following parameter setting may degrade ASR performance for domain mismatched data. (2025/12)*.  In such a case, we need to use the default setting. 
+*Note that the following parameter setting may degrade ASR performance for domain mismatched data (2025/12)*.  In such a case, we need to use the default setting. 
 
 Our settings (*corpus10* models)
 ```
@@ -636,13 +636,13 @@ We shall not be liable for any trouble, loss and damage caused by the use of mod
   booktitle={Proceedings of Asia-Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC)},
 }
 ```
-- Syllable-based ASR models (CSJ series) and its basic approach (including WFST-based decoding, basic Kana-Kanji conversion) had been developed in the following researches. 
+- Syllable-based ASR models (CSJ series) and its basic approach (including *any-tag* WFST-based decoding, basic Kana-Kanji conversion) had been developed in the following researches. 
 ```
 @inproceedings {oshio2023:apsipa,
   author={Miki Oshio, Hokuto Munakata, Ryu Takeda and Kazunori Komatani},
   title={Out-Of-Vocabulary Word Detection in Spoken Dialogues Based on Joint Decoding with User Response Patterns},
-  booktitle={Proceedings of Asia Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC)}
-  pages={1753--1759}
+  booktitle={Proceedings of Asia Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC)},
+  pages={1753--1759},
   year={2023}
 }
 @inproceedings {rtakeda2024:iwsds,
