@@ -8,7 +8,7 @@ If you want to know or evaluate performance of models, please see [asr-ja_evalki
 
 ## Features
 * Support Japanese models trained with **human-annotated (accurate transcription) corpora**
-* Recognition of **fillers** and **hesitations** (deletion error rate is basically small)
+* Recognition of **fillers** and **hesitations** (important personal traits) for spoken dialogue systems (and deletion error rate is basically small)
 * Support noise-robust models for raw recoding data (not for audio data of movie file, and compressed audio data)
 * Support batch and streaming models (ContextualBlockTransformer for streaming)
 * Support Kanji-Katakana-Hiragana and Katakana (Syllable-like) character ASR models
@@ -475,7 +475,11 @@ Please run "sct.py", and you will get the translation result.
 
 <a id="character_to_syllable_translation"></a>
 
-### Character-to-Syllable Conversion Models
+### Character-to-Syllable Translation (Conversion) Models
+These character-to-syllable translation (CST) models are not ESPnet models. These are inverse models of syllable-to-character translation models. 
+ - SCT: アラユルゲンジツオ -> あらゆる現実を
+ - CST: あらゆる現実を -> アラユルゲンジツオ
+
 #### T5 for Conditional Generation
 These preliminary models use T5 model for conditional generation. Note that architechtures and tokenizers have not been optimized yet.   
 
