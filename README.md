@@ -180,7 +180,7 @@ results = model(torch.empty(0), is_final=True)
 
 Please set an appropriate ```beam_size``` to reduce the latency time because the default beam_size 40 may be large for real-time recognition.  The ```segment_len``` parameter of this example is also not optimal. 
 
-**Note that the option "disable_repetition_detection" is required to obtain intermediate recognition results.**
+**Note that the option "disable_repetition_detection" is required to obtain intermediate recognition results. However, its ASR performance may degrade. Please see the performance comparison in [asr-ja_evalkit](https://github.com/ouktlab/asr-ja_evalkit).**
 
 
 See [pyadintool](https://github.com/ouktlab/pyadintool) ASR example for real-time streaming ASR. 
